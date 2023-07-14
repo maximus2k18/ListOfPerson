@@ -1,67 +1,45 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class RepositoryPerson implements ModificationPerson{
-    static ArrayList<Person> arrayListOfPerson = new ArrayList<>();
-    @Override
-    public List rename(Long id, String name) {
-        for (Person pers : arrayListOfPeron) {
-            if (pers.getId().equals(id)) {
-                pers.setName(name);
-            }
-        }
-        return arrayListOfPeron;
-    }
-
+    private Map <Long,Person> arrayListOfPerson = new HashMap();
 
     @Override
-    public List<Person> getAll(Person persons) {
-        for (Person pers: arrayListOfPerson) {
-            System.out.println(pers);
-        }
-        return null;
+    public Set<Map.Entry <Long, Person>> getAll() {
+        return arrayListOfPerson.entrySet();
     }
 
     @Override
     public Person getById(Long id) {
-        Person foundPerson = null;
-        for (Person pers:arrayListOfPerson) {
-            if (pers.getId().equals(id)) {
-                foundPerson = pers;
-            break;
-            }
-        }
-        System.out.println(foundPerson);
-                return  foundPerson;
-    }
-    private ArrayList<Person> arrayListOfPeron = new ArrayList();
-
-    @Override
-    public Person save(Person person) {
-        arrayListOfPeron.add(person);
-        return person;
+        return arrayListOfPerson.get(id);
     }
 
     @Override
-    public List<Person> delete(Long id) {
-        for (Person pers : arrayListOfPeron) {
-            if (pers.getId().equals(id)) {
-                arrayListOfPeron.remove(pers);
-                break;
-            }
-        }
-        return arrayListOfPeron;
+    public Map save(Long id, Person person) {
+        arrayListOfPerson.put(id,person);
+        return arrayListOfPerson;
     }
-
 
     @Override
-    public void search() {
-
+    public void delete(Long id) {
+        arrayListOfPerson.remove(id);
     }
 
+    @Override
+    public Person add(Long id, String name, String lastName, String patronymicName, String dateOfBirth) {
+        return null;
+    }
+
+    @Override
+    public Map search() {
+        return null;
+    }
+
+    @Override
+    public Person rename(Long id) {
+        return null;
+    }
 
 
 }

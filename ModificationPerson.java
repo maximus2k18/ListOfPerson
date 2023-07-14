@@ -1,12 +1,15 @@
 package org.example;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public interface ModificationPerson {
-    List <Person> getAll(Person persons);
+    Set<Map.Entry <Long, Person>> getAll();
     Person getById(Long id);
-    Person save(Person person);
-    List<Person> delete(Long id);
-    void search();
-    List rename(Long id, String name);
+    public Map save(Long id, Person person);
+    void delete(Long id);
+    Person add(Long id, String name, String lastName, String patronymicName, String dateOfBirth);
+    Map search();
+    Person rename(Long id);
 }

@@ -1,22 +1,20 @@
 package org.example;
 
 public class Person {
-    Long id;
-    String name;
-    String lastName;
-    String patronymicName;
-    String dateOfBirth;
-    boolean woman = true;
-    boolean married = true;
+    private Long id;
+    private String name;
+    private String lastName;
+    private String patronymicName;
+    private String dateOfBirth;
+    enum gender{woman,man};
+    enum marriage{married, single};
 
-    public Person(Long id, String name, String lastName, String patronymicName, String dateOfBirth, boolean woman, boolean married) {
+    public Person(Long id, String name, String lastName, String patronymicName,String dateOfBirth) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.patronymicName = patronymicName;
         this.dateOfBirth = dateOfBirth;
-        this.woman = woman;
-        this.married = married;
     }
 
     public Long getId() {
@@ -59,31 +57,52 @@ public class Person {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public boolean isWoman() {
-        return woman;
-    }
+    public static class Builder {
+        private Long id;
+        private String name;
+        private String lastName;
+        private String patronymicName;
+        private String dateOfBirth;
 
-    public void setWoman(boolean woman) {
-        this.woman = woman;
-    }
+        public Builder setId(Long id) {
+            this.id = id;
+            return this;
+        }
 
-    public boolean isMarried() {
-        return married;
-    }
+        public Builder setName(String name) {
+            this.name = name;
+            return this;
+        }
 
-    public void setMarried(boolean married) {
-        this.married = married;
-    }
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", patronymicName='" + patronymicName + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
-                ", woman='" + woman + '\'' +
-                ", married='" + married + '\'' +
-                '}';
+        public Builder setLastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public Builder setPatronymicName(String patronymicName) {
+            this.patronymicName = patronymicName;
+            return this;
+        }
+
+        public Builder setDateOfBirth(String dateOfBirth) {
+            this.dateOfBirth = dateOfBirth;
+            return this;
+        }
+
+        public Person build() {
+            return new Person(id, name, lastName, patronymicName, dateOfBirth);
+        }
+
+
+        @Override
+        public String toString() {
+            return "Person{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    ", lastName='" + lastName + '\'' +
+                    ", patronymicName='" + patronymicName + '\'' +
+                    ", dateOfBirth='" + dateOfBirth + '\'' +
+                    '}';
+        }
     }
 }
