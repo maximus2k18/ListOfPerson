@@ -10,10 +10,10 @@ public class AppInitialisationImpl implements AppInitialisation {
 
     @Override
     public void initialize(PersonRepository repositoryPerson) {
-        Person person1 = new Person(id, "Максим", "Муравьёв",  "Сергеевич","09.04.2002", Gender.MAN);
+        Person person1 = new Person(id, "Максим", "Муравьёв",  "Сергеевич","03.02.2002", Gender.MAN);
         repositoryPerson.save(id,person1);
 
-        Person person2 = new Person(++id, "Вася", "Пупкин", "Сергеевич" ,"08.08.2008",Gender.MAN);
+        Person person2 = new Person(++id, "Вася", "Пупкин", "Сергеевич" ,"08.02.2008",Gender.MAN);
         repositoryPerson.save(id,person2);
 
         Person person3 = new Person(++id, "Мария", "Смирнова", "Сергеевна","06.05.1996",Gender.WOMAN);

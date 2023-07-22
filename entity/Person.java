@@ -2,15 +2,13 @@ package org.example.entity;
 
 import org.example.enums.Gender;
 
-import java.util.Random;
-
 public class Person {
-    private Long id;
+    private final Long id;
     private String name;
     private String lastName;
     private String patronymicName;
-    private String dateOfBirth;
-    private Gender gender;
+    private final String dateOfBirth;
+    private final Gender gender;
 
 
     public Person(Long id, String name, String lastName, String patronymicName,String dateOfBirth, Gender gender) {
@@ -22,6 +20,7 @@ public class Person {
         this.gender = gender;
     }
 /*    public Person(String name, String lastName, String patronymicName,String dateOfBirth, Gender gender) {
+    public Person(String name, String lastName, String patronymicName,String dateOfBirth, Gender gender) {
         this.name = name;
         this.lastName = lastName;
         this.patronymicName = patronymicName;
@@ -31,10 +30,6 @@ public class Person {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -60,15 +55,6 @@ public class Person {
     public void setPatronymicName(String patronymicName) {
         this.patronymicName = patronymicName;
     }
-
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
 
     @Override
     public String toString() {
