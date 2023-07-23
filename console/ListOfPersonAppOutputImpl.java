@@ -1,7 +1,9 @@
 package org.example.console;
 
-public class ListOfPersonAppOutput extends ReadScannerImpl{
-    //создать экз? сканера
+import org.example.interfaces.ListOfPersonAppOutput;
+
+public class ListOfPersonAppOutputImpl extends ReadScannerImpl implements ListOfPersonAppOutput {
+    @Override
     public void first_output() {
         System.out.println("""
                 Введите действие с помощью числа!
@@ -15,6 +17,7 @@ public class ListOfPersonAppOutput extends ReadScannerImpl{
                 0 - Закрыть консоль
                 """);
     }
+    @Override
     public void outputValueForUser(){
         System.out.println("Введите 1, чтобы ввести имя, 2 - фамилию, 3 - отчество");
     }
@@ -53,6 +56,5 @@ public class ListOfPersonAppOutput extends ReadScannerImpl{
             case 9 -> first_output();
             default -> System.out.println("Нет такого числа в списке!");
         }
-
     }
 }
