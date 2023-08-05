@@ -3,27 +3,29 @@ package org.example.impl;
 import org.example.console.ListOfPersonAppOutputImpl;
 import org.example.console.ReadScannerImpl;
 import org.example.entity.Person;
-import org.example.enums.Gender;
 import org.example.interfaces.ListOfPersonAppOutput;
 import org.example.interfaces.PersonRepository;
-import org.example.scaner.ReadInputOfUserImpl;
+import org.example.interfaces.ReadScanner;
 
 public class ListOfPersonAppImpl  {
     static ListOfPersonAppOutput ListOfPersonAppOutput = new ListOfPersonAppOutputImpl();
-    private static final ReadScannerImpl readScanner  = new ReadScannerImpl();
-    private static final ReadInputOfUserImpl readInputOfUser = new ReadInputOfUserImpl();
+    static ReadScannerImpl readScanner = new ReadScannerImpl();
+
     public static void doRun(PersonRepository personRepository) {
         ListOfPersonAppOutput.first_output();
         boolean flag = true;
         while (flag) {
-            String s = readScanner.readSсanString(readInputOfUser.createScanner());
+
+           // String s = readScanner.readSсanString(readInputOfUser.createScanner());
+            String s = readScanner.readSсanString();
+
             ListOfPersonAppOutput.outputInstruction(s);
             switch (s) {
                 case "1" -> personRepository.getAll();
                 case "2" -> {
-                    System.out.println(personRepository.getById(readScanner.readScanLong(readInputOfUser.createScanner())));
+            //        System.out.println(personRepository.getById(readScanner.readScanLong(readInputOfUser.createScanner())));
                 }
-                case "3" -> {
+               /* case "3" -> {
                     String name = readScanner.readSсanString(readInputOfUser.createScanner());
                     String lastName = readScanner.readSсanString(readInputOfUser.createScanner());
                     String patronymicName = readScanner.readSсanString(readInputOfUser.createScanner());
@@ -56,7 +58,7 @@ public class ListOfPersonAppImpl  {
                 }
                 case "9" -> ListOfPersonAppOutput.first_output();
                 case "0" -> flag = false;
-                default -> System.out.println("Нет такого значения!");
+                default -> System.out.println("Нет такого значения!");*/
             }
         }
     }

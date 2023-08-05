@@ -3,7 +3,8 @@ package org.example.interfaces;
 import java.util.Scanner;
 
 public interface ReadScanner {
-    Long readScanLong(Scanner scanner);
-    String readSсanString(Scanner scanner);
-    Integer readScanInt(Scanner scanner);
+    public Scanner createScanner();
+    Long readScanLong();
+    String readSсanString();
+    Integer readScanInt();
 }

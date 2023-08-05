@@ -1,7 +1,7 @@
 package org.example.entity;
 
 import org.example.enums.Gender;
-
+//4 - ListOfPersonAppOutputImpl.outputTextForUser не его ответственность
 public class Person {
     private static Long idCounter = 4L;
     public Long id;

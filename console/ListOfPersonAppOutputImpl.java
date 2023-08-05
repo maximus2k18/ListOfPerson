@@ -31,7 +31,7 @@ public class ListOfPersonAppOutputImpl implements ListOfPersonAppOutput {
                     " 2 - фамилию, 3 - отчество\nВведите на что хотите изменить ");
             case "6" -> System.out.println("Введите 1, чтобы искать имя, 2 - фамилию, 3 - отчество\n" +
                     "Введите значение для поиска");
-            case "9" -> first_output();
+            case "9" -> first_output(); 
         }
     }
 }
