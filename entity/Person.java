@@ -3,13 +3,13 @@ package org.example.entity;
 import org.example.enums.Gender;
 
 public class Person {
-    private final Long id;
+    private static Long idCounter = 4L;
+    public Long id;
     private String name;
     private String lastName;
     private String patronymicName;
     private final String dateOfBirth;
     private final Gender gender;
-
 
     public Person(Long id, String name, String lastName, String patronymicName,String dateOfBirth, Gender gender) {
         this.id = id;
@@ -19,15 +19,18 @@ public class Person {
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
     }
-/*    public Person(String name, String lastName, String patronymicName,String dateOfBirth, Gender gender) {
-    public Person(String name, String lastName, String patronymicName,String dateOfBirth, Gender gender) {
+    public Person(String name, String lastName, String patronymicName, String dateOfBirth, Gender gender) {
+        this.id = ++idCounter;
         this.name = name;
         this.lastName = lastName;
         this.patronymicName = patronymicName;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
-    }*/
-
+    }
+    public Person createPerson(String name, String lastName, String patronymicName,
+                               String dateOfBirth, Gender gender) {
+        return new Person(idCounter,name,lastName,patronymicName,dateOfBirth,gender);
+    }
     public Long getId() {
         return id;
     }
@@ -54,6 +57,18 @@ public class Person {
 
     public void setPatronymicName(String patronymicName) {
         this.patronymicName = patronymicName;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public Gender getGender() {
+        return gender;
     }
 
     @Override

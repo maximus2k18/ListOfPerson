@@ -2,7 +2,9 @@ package org.example.console;
 
 import org.example.interfaces.ListOfPersonAppOutput;
 
-public class ListOfPersonAppOutputImpl extends ReadScannerImpl implements ListOfPersonAppOutput {
+import java.io.File;
+
+public class ListOfPersonAppOutputImpl implements ListOfPersonAppOutput {
     @Override
     public void first_output() {
         System.out.println("""
@@ -17,44 +19,19 @@ public class ListOfPersonAppOutputImpl extends ReadScannerImpl implements ListOf
                 0 - Закрыть консоль
                 """);
     }
-    @Override
-    public void outputValueForUser(){
-        System.out.println("Введите 1, чтобы ввести имя, 2 - фамилию, 3 - отчество");
-    }
-
-    public void outputDelete(){
-        System.out.println("Удаление, введите id для удаления");
-    }
-    public void outputSuccess(){
-        System.out.println("Успешно!");
-    }
-    public void outputNameForUser(){
-        System.out.println("Введите имя");
-    }
-    public void outputSearchValueForUser(){
-        System.out.println("Введите значение для поиска");
-    }
-    public void outputChangeValueForUser(){
-        System.out.println("Введите значение для замены");
-    }
-    public void outputLastNameForUser(){
-        System.out.println("Введите фамилию");
-    }
-    public void outputPatronymicNameForUser (){
-        System.out.println("Введите отчество или оставьте пустым");
-    }
-    public void outputDateOfBirthForUser(){
-        System.out.println("Введите дату рождения, например:  30.12.1999");
-    }
-    public void outputGenderForUser(){
-        System.out.println("Введите 1, если мужчина, иначе 2");
-    }
-    public void outputTextForUser(int digit) {
-        switch (digit) {
-            case 2 -> System.out.println("Вывод человека по id, введите id");
-            case 3 -> System.out.println("Введите id");
-            case 9 -> first_output();
-            default -> System.out.println("Нет такого числа в списке!");
+    public void outputInstruction(String s){
+        switch (s) {
+            case "2" -> System.out.println("Вывод человека по id, введите id");
+            case "3" -> System.out.println("Введите имя\nВведите фамилию" +
+                    "\nВведите отчество, если есть" +
+                    "\nВведите дату рождения, например: 30.12.1999" +
+                    "\nВведите 1, если Вы мужчина, иначе 2");
+            case "4" -> System.out.println("Удаление, введите id для удаления");
+            case "5" -> System.out.println("Введите id для изменения человека\nВведите цифрой что изменить: 1 - имя" +
+                    " 2 - фамилию, 3 - отчество\nВведите на что хотите изменить ");
+            case "6" -> System.out.println("Введите 1, чтобы искать имя, 2 - фамилию, 3 - отчество\n" +
+                    "Введите значение для поиска");
+            case "9" -> first_output();
         }
     }
 }

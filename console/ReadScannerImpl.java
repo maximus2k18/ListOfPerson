@@ -6,17 +6,16 @@ import java.util.Scanner;
 
 public class ReadScannerImpl implements ReadScanner {
     @Override
-    public Long readScannerLong(Scanner scanner) {
+    public Long readScanLong(Scanner scanner) {
         return scanner.nextLong();
     }
 
     @Override
-    public String readSсannerString(Scanner scanner) {
+    public String readSсanString(Scanner scanner) {
         return scanner.nextLine();
     }
 
-    @Override
-    public Integer readScannerInt(Scanner scanner) {
+    public Integer readScanInt(Scanner scanner) {
         return scanner.nextInt();
     }
 }

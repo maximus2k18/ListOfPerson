@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class PersonRepositoryImpl implements PersonRepository {
+
     private Map <Long, Person> arrayListOfPerson = new HashMap();
     @Override
     public Map getAll() {
@@ -18,20 +19,19 @@ public class PersonRepositoryImpl implements PersonRepository {
         return arrayListOfPerson;
     }
     @Override
-    public List<Person> getById(Long id) {
-        List<Person> result = new ArrayList<>();
+    public Person getById(Long id) {
         for (Map.Entry<Long,Person> entry:arrayListOfPerson.entrySet()) {
             if (entry.getValue().getId()==id){
-                result.add(entry.getValue());
+                return entry.getValue();
             }
         }
-        return result;
+        return null;
     }
 
     @Override
-    public Map save(Long id, Person person) {
+    public Person save(Long id, Person person) {
         arrayListOfPerson.put(id,person);
-        return arrayListOfPerson;
+        return person;
     }
     @Override
     public void delete(Long id) {
@@ -54,7 +54,6 @@ public class PersonRepositoryImpl implements PersonRepository {
         }
         return null;
     }
-
     @Override
     public List<Long> search(int changeValue, String value) {
         List<Long> listId = new ArrayList<>();
