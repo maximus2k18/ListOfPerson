@@ -1,7 +1,6 @@
 package org.example.entity;
 
 import org.example.enums.Gender;
-//4 - ListOfPersonAppOutputImpl.outputTextForUser не его ответственность
 public class Person {
     private static Long idCounter = 4L;
     public Long id;
@@ -11,7 +10,7 @@ public class Person {
     private final String dateOfBirth;
     private final Gender gender;
 
-    public Person(Long id, String name, String lastName, String patronymicName,String dateOfBirth, Gender gender) {
+      public Person(Long id, String name, String lastName, String patronymicName,String dateOfBirth, Gender gender) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -69,6 +68,14 @@ public class Person {
 
     public Gender getGender() {
         return gender;
+    }
+
+    public  Long getIdCounter() {
+        return idCounter;
+    }
+
+    public void setIdCounter(Long idCounter) {
+        Person.idCounter = idCounter;
     }
 
     @Override

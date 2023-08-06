@@ -2,8 +2,6 @@ package org.example.console;
 
 import org.example.interfaces.ListOfPersonAppOutput;
 
-import java.io.File;
-
 public class ListOfPersonAppOutputImpl implements ListOfPersonAppOutput {
     @Override
     public void first_output() {

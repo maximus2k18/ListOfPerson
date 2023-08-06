@@ -21,7 +21,7 @@ public class PersonRepositoryImpl implements PersonRepository {
     @Override
     public Person getById(Long id) {
         for (Map.Entry<Long,Person> entry:arrayListOfPerson.entrySet()) {
-            if (entry.getValue().getId()==id){
+            if (entry.getValue().getId().equals(id)){
                 return entry.getValue();
             }
         }
@@ -40,17 +40,34 @@ public class PersonRepositoryImpl implements PersonRepository {
 
 
     @Override
-    public Person rename(Long id, int changeValue, String valueName) {
+    public Person rename(Long id, Integer changeValue, String someName) {
         switch (changeValue){
             case 1:
-                arrayListOfPerson.get(id).setName(valueName);
-                return arrayListOfPerson.get(id);
+                for (Map.Entry<Long,Person> entry:arrayListOfPerson.entrySet()) {
+                    if (entry.getValue().getId().equals(id)){
+                        entry.getValue().setName(someName);
+                        return entry.getValue();
+                    }
+                }
+                break;
             case 2:
-                arrayListOfPerson.get(id).setLastName(valueName);
-                return arrayListOfPerson.get(id);
+                for (Map.Entry<Long,Person> entry:arrayListOfPerson.entrySet()) {
+                    if (entry.getValue().getId().equals(id)){
+                        entry.getValue().setLastName(someName);
+                        return entry.getValue();
+                    }
+                }
+                break;
             case 3:
-                arrayListOfPerson.get(id).setPatronymicName(valueName);
-                return arrayListOfPerson.get(id);
+                for (Map.Entry<Long,Person> entry:arrayListOfPerson.entrySet()) {
+                    if (entry.getValue().getId().equals(id)){
+                        entry.getValue().setPatronymicName(someName);
+                        return entry.getValue();
+                    }
+                }
+                break;
+            default:
+                System.out.println("нет такого значения в rename");
         }
         return null;
     }

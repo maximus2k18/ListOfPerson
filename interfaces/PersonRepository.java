@@ -11,5 +11,5 @@ public interface PersonRepository {
     Person save(Long id, Person person);
     void delete(Long id);
     List<Long> search(int changeValue, String value);
-    Person rename(Long id, int changeValue, String name);
+    Person rename(Long id, Integer changeValue, String someName);
 }

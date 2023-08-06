@@ -3,9 +3,9 @@ package org.example.impl;
 import org.example.console.ListOfPersonAppOutputImpl;
 import org.example.console.ReadScannerImpl;
 import org.example.entity.Person;
+import org.example.enums.Gender;
 import org.example.interfaces.ListOfPersonAppOutput;
 import org.example.interfaces.PersonRepository;
-import org.example.interfaces.ReadScanner;
 
 public class ListOfPersonAppImpl  {
     static ListOfPersonAppOutput ListOfPersonAppOutput = new ListOfPersonAppOutputImpl();
@@ -15,22 +15,19 @@ public class ListOfPersonAppImpl  {
         ListOfPersonAppOutput.first_output();
         boolean flag = true;
         while (flag) {
-
-           // String s = readScanner.readSсanString(readInputOfUser.createScanner());
             String s = readScanner.readSсanString();
-
             ListOfPersonAppOutput.outputInstruction(s);
             switch (s) {
                 case "1" -> personRepository.getAll();
                 case "2" -> {
-            //        System.out.println(personRepository.getById(readScanner.readScanLong(readInputOfUser.createScanner())));
+                    System.out.println(personRepository.getById(readScanner.readScanLong()));
                 }
-               /* case "3" -> {
-                    String name = readScanner.readSсanString(readInputOfUser.createScanner());
-                    String lastName = readScanner.readSсanString(readInputOfUser.createScanner());
-                    String patronymicName = readScanner.readSсanString(readInputOfUser.createScanner());
-                    String dateOfBirth = readScanner.readSсanString(readInputOfUser.createScanner());
-                    String gender_1 = readScanner.readSсanString(readInputOfUser.createScanner());
+                case "3" -> {
+                    String name = readScanner.readSсanString();
+                    String lastName = readScanner.readSсanString();
+                    String patronymicName = readScanner.readSсanString();
+                    String dateOfBirth = readScanner.readSсanString();
+                    String gender_1 = readScanner.readSсanString();
                     Gender gender;
                     if ("1".equals(gender_1)) {
                         gender = Gender.MAN;
@@ -42,23 +39,22 @@ public class ListOfPersonAppImpl  {
                     personRepository.save(persona.getId(),persona);
                 }
                 case "4" -> {
-                    Long number4 = readScanner.readScanLong(readInputOfUser.createScanner());
+                    Long number4 = readScanner.readScanLong();
                     personRepository.delete(number4);
                 }
                 case "5" -> {
-                    Long id5 = readScanner.readScanLong(readInputOfUser.createScanner());
-                    int changeValue5 = readScanner.readScanInt(readInputOfUser.createScanner());
-                    String someName5 = readScanner.readSсanString(readInputOfUser.createScanner());
+                    Long id5 = readScanner.readScanLong();
+                    Integer changeValue5 = readScanner.readScanInt();
+                    String someName5 = readScanner.readSсanString();
                     personRepository.rename(id5, changeValue5, someName5);
                 }
                 case "6" -> {
-                    Integer changeValue = readScanner.readScanInt(readInputOfUser.createScanner());
-                    String value6 = readScanner.readSсanString(readInputOfUser.createScanner());
+                    Integer changeValue = readScanner.readScanInt();
+                    String value6 = readScanner.readSсanString();
                     System.out.println(personRepository.search(changeValue, value6));
                 }
                 case "9" -> ListOfPersonAppOutput.first_output();
                 case "0" -> flag = false;
-                default -> System.out.println("Нет такого значения!");*/
             }
         }
     }
