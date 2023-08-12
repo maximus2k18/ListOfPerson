@@ -34,7 +34,7 @@ public class ListOfPersonAppImpl  {
                     } else {
                         gender = Gender.WOMAN;
                     }
-                    Person persona = new Person(10L,name, lastName, patronymicName, dateOfBirth, gender);
+                    Person persona = new Person(name, lastName, patronymicName, dateOfBirth, gender);
                     persona.createPerson(name, lastName, patronymicName, dateOfBirth, gender);
                     personRepository.save(persona.getId(),persona);
                 }
@@ -53,6 +53,7 @@ public class ListOfPersonAppImpl  {
                     String value6 = readScanner.readSсanString();
                     System.out.println(personRepository.search(changeValue, value6));
                 }
+                case "9" -> ListOfPersonAppOutput.first_output();
                 case "0" -> flag = false;
             }
         }
