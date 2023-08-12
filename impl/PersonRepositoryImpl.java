@@ -1,15 +1,12 @@
 package org.example.impl;
 
 import org.example.entity.Person;
+import org.example.enums.Gender;
 import org.example.interfaces.PersonRepository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PersonRepositoryImpl implements PersonRepository {
-
     private Map <Long, Person> arrayListOfPerson = new HashMap();
     @Override
     public Map getAll() {
@@ -38,14 +35,14 @@ public class PersonRepositoryImpl implements PersonRepository {
         arrayListOfPerson.remove(id);
     }
 
-
     @Override
     public Person rename(Long id, Integer changeValue, String someName) {
         switch (changeValue){
             case 1:
                 for (Map.Entry<Long,Person> entry:arrayListOfPerson.entrySet()) {
                     if (entry.getValue().getId().equals(id)){
-                        entry.getValue().setName(someName);
+                        entry.setValue(new Person(id,someName, "lastn", "", "12.12", Gender.MAN));
+                        System.out.println("Чел с именем" +entry.getValue().getName());
                         return entry.getValue();
                     }
                 }
@@ -98,5 +95,18 @@ public class PersonRepositoryImpl implements PersonRepository {
                 return listId;
         }
         return listId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PersonRepositoryImpl that = (PersonRepositoryImpl) o;
+        return Objects.equals(arrayListOfPerson, that.arrayListOfPerson);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(arrayListOfPerson);
     }
 }

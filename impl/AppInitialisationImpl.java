@@ -18,7 +18,7 @@ public class AppInitialisationImpl implements AppInitialisation {
         Person person3 = new Person(3L,"Мария", "Смирнова", "Сергеевна","06.05.1996",Gender.WOMAN);
         repositoryPerson.save(person3.getId(),person3);
 
-        Person person4 = new Person(4L,"Вася", "Пугачев", "Алексеевич" ,"17.11.2011",Gender.MAN);
-        repositoryPerson.save(person4.getId(), person4);
+        /*Person person4 = new Person(4L,"Вася", "Пугачев", "Алексеевич" ,"17.11.2011",Gender.MAN);
+        repositoryPerson.save(person4.getId(), person4);*/
     }
 }

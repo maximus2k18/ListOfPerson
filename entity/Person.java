@@ -2,24 +2,17 @@ package org.example.entity;
 
 import org.example.enums.Gender;
 public class Person {
-    private static Long idCounter = 4L;
-    public Long id;
+    private Long id = 1L;
+
     private String name;
     private String lastName;
     private String patronymicName;
     private final String dateOfBirth;
     private final Gender gender;
 
-      public Person(Long id, String name, String lastName, String patronymicName,String dateOfBirth, Gender gender) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.patronymicName = patronymicName;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-    }
-    public Person(String name, String lastName, String patronymicName, String dateOfBirth, Gender gender) {
-        this.id = ++idCounter;
+
+    public Person(Long id, String name, String lastName, String patronymicName, String dateOfBirth, Gender gender) {
+        this.id = ++id;
         this.name = name;
         this.lastName = lastName;
         this.patronymicName = patronymicName;
@@ -28,10 +21,15 @@ public class Person {
     }
     public Person createPerson(String name, String lastName, String patronymicName,
                                String dateOfBirth, Gender gender) {
-        return new Person(idCounter,name,lastName,patronymicName,dateOfBirth,gender);
+        return new Person(id,name,lastName,patronymicName,dateOfBirth,gender);
     }
+
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -58,24 +56,12 @@ public class Person {
         this.patronymicName = patronymicName;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getDateOfBirth() {
         return dateOfBirth;
     }
 
     public Gender getGender() {
         return gender;
-    }
-
-    public  Long getIdCounter() {
-        return idCounter;
-    }
-
-    public void setIdCounter(Long idCounter) {
-        Person.idCounter = idCounter;
     }
 
     @Override
