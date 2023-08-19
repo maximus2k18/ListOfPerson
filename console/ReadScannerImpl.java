@@ -9,7 +9,6 @@ public class ReadScannerImpl implements ReadScanner {
     public ReadScannerImpl() {
         this.scanner = createScanner();
     }
-
     @Override
     public Scanner createScanner() {
         Scanner scanner = new Scanner(System.in);
