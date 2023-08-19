@@ -53,7 +53,6 @@ public class ListOfPersonAppImpl  {
                     String value6 = readScanner.readSсanString();
                     System.out.println(personRepository.search(changeValue, value6));
                 }
-                case "9" -> ListOfPersonAppOutput.first_output();
                 case "0" -> flag = false;
             }
         }

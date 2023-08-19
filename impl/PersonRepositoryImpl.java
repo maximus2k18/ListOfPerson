@@ -3,10 +3,7 @@ package org.example.impl;
 import org.example.entity.Person;
 import org.example.interfaces.PersonRepository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PersonRepositoryImpl implements PersonRepository {
 
@@ -38,7 +35,6 @@ public class PersonRepositoryImpl implements PersonRepository {
         arrayListOfPerson.remove(id);
     }
 
-
     @Override
     public Person rename(Long id, Integer changeValue, String someName) {
         switch (changeValue){
@@ -67,7 +63,7 @@ public class PersonRepositoryImpl implements PersonRepository {
                 }
                 break;
             default:
-                System.out.println("нет такого значения в rename");
+                System.out.println("Нет такого значения в rename");
         }
         return null;
     }
@@ -98,5 +94,18 @@ public class PersonRepositoryImpl implements PersonRepository {
                 return listId;
         }
         return listId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PersonRepositoryImpl that = (PersonRepositoryImpl) o;
+        return Objects.equals(arrayListOfPerson, that.arrayListOfPerson);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(arrayListOfPerson);
     }
 }

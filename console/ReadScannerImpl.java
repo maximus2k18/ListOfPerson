@@ -23,7 +23,7 @@ public class ReadScannerImpl implements ReadScanner {
 
     @Override
     public String readSсanString() {
-        return scanner.nextLine();
+        return scanner.next();
     }
 
     public Integer readScanInt() {
