@@ -28,4 +28,9 @@ public class ReadScannerImpl implements ReadScanner {
     public Integer readScanInt() {
         return scanner.nextInt();
     }
+
+    @Override
+    public Double readScanDouble() {
+        return scanner.nextDouble();
+    }
 }

@@ -7,4 +7,5 @@ public interface ReadScanner {
     Long readScanLong();
     String readSсanString();
     Integer readScanInt();
+    Double readScanDouble();
 }
