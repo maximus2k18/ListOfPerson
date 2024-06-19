@@ -1,7 +1,7 @@
 package org.example.enums;
 
 public enum Gender {
-    MAN("Мужчина"), WOMAN("Женщина");
+    M("Мужчина"), W("Женщина"), OTHER("Другое");
     private final String translation;
 
     Gender(String translation){
